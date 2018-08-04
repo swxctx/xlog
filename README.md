@@ -1,2 +1,2 @@
 # xlog
-golang日志工具。
+golang的简洁日志工具。
