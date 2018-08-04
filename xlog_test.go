@@ -12,7 +12,13 @@ func TestXlog(t *testing.T) {
 	fmt.Println(White("White"))
 	fmt.Println(Gray("Gray"))
 	fmt.Println(Red("Red"))
-	fmt.Println(RedBackground("RedBackground"))
 	fmt.Println(Green("Green"))
 	fmt.Println(Yellow("Yellow"))
+
+	Default.Level = DebugLevel
+	Infof("infof test ...")
+	Debugf("debug test ...")
+	Warnf("warnf test ...")
+	Errorf("error test ...")
+	Fatalf("fatalf test ...")
 }
