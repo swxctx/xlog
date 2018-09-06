@@ -4,3 +4,8 @@
 [![GoDoc](http://godoc.org/github.com/swxctx/xlog?status.svg)](http://godoc.org/github.com/swxctx/xlog)
 
 golang的简洁日志工具。
+
+## install
+```
+$ go get -u github.com/swxctx/xlog
+```
