@@ -9,3 +9,6 @@ golang的简洁日志工具。
 ```
 $ go get -u github.com/swxctx/xlog
 ```
+
+## Higher
+[usthooz-oozlog](https://github.com/usthooz/oozlog/tree/master/go)
