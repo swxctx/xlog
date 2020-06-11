@@ -1,4 +1,4 @@
-package xlog
+package ozlog
 
 import (
 	"fmt"
@@ -10,66 +10,58 @@ func colorize(colorCode int, str string) string {
 	return fmt.Sprintf(colorFormat, colorCode, str)
 }
 
-// ColorBlue code 蓝色
-var ColorBlue = 34
+// colorBlue code 蓝色
+var colorBlue = 34
 
-// Blue color
-func Blue(s string) string {
-	return colorize(ColorBlue, s)
+// blue color
+func blue(s string) string {
+	return colorize(colorBlue, s)
 }
 
-// ColorLightGreen code 天蓝色
-var ColorLightGreen = 36
+// colorLightGreen code 天蓝色
+var colorLightGreen = 36
 
-// LightGreen color
-func LightGreen(s string) string {
-	return colorize(ColorLightGreen, s)
+// lightGreen color
+func lightGreen(s string) string {
+	return colorize(colorLightGreen, s)
 }
 
-// ColorPurple code 淡红
-var ColorPurple = 35
+// colorPurple code 淡红
+var colorPurple = 35
 
-// Purple color
-func Purple(s string) string {
-	return colorize(ColorPurple, s)
+// purple color
+func purple(s string) string {
+	return colorize(colorPurple, s)
 }
 
-// ColorWhite code 白色
-var ColorWhite = 0
+// colorRed code 红色
+var colorRed = 31
 
-// White coloe
-func White(s string) string {
-	return colorize(ColorWhite, s)
+// red color
+func red(s string) string {
+	return colorize(colorRed, s)
 }
 
-// ColorGray code 灰色
-var ColorGray = 37
+// colorGreen code 绿色
+var colorGreen = 32
 
-// Gray color
-func Gray(s string) string {
-	return colorize(ColorGray, s)
+// green color
+func green(s string) string {
+	return colorize(colorGreen, s)
 }
 
-// ColorRed code 红色
-var ColorRed = 31
+// colorYellow code 黄色
+var colorYellow = 33
 
-// Red color
-func Red(s string) string {
-	return colorize(ColorRed, s)
+// yellow color
+func yellow(s string) string {
+	return colorize(colorYellow, s)
 }
 
-// ColorGreen code 绿色
-var ColorGreen = 32
+//  淡橙色
+var colorOrange = 91
 
-// Green color
-func Green(s string) string {
-	return colorize(ColorGreen, s)
-}
-
-// ColorYellow code 黄色
-var ColorYellow = 33
-
-// Yellow color
-func Yellow(s string) string {
-	return colorize(ColorYellow, s)
+// orange color
+func orange(s string) string {
+	return colorize(colorOrange, s)
 }

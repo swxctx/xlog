@@ -1,4 +1,4 @@
-package xlog
+package ozlog
 
 // level 默认级别"info"
 var Default = New()
@@ -49,4 +49,9 @@ func Infof(format string, args ...interface{}) {
 // Debugf
 func Debugf(format string, args ...interface{}) {
 	Default.Debugf(format, args...)
+}
+
+// Tracef
+func Tracef(format string, args ...interface{}) {
+	Default.Tracef(format, args...)
 }

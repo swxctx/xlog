@@ -1,4 +1,4 @@
-package xlog
+package ozlog
 
 import (
 	"time"

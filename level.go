@@ -1,4 +1,4 @@
-package xlog
+package ozlog
 
 // Level
 type Level int
@@ -14,8 +14,10 @@ const (
 	WarnLevel
 	// Info print errors, warnings and infos.
 	InfoLevel
-	// Debug will print on any level
+	// Debug will print debug and trace
 	DebugLevel
+	// lightGreen will print trace
+	TraceLevel
 )
 
 // Levels info
@@ -29,28 +31,33 @@ var Levels = map[Level]*LevelMeta{
 	FatalLevel: {
 		Name:         "fatal",
 		RawText:      "[FTAL]",
-		ColorfulText: LightGreen("[FTAL]"),
+		ColorfulText: purple("[FTAL]"),
 	},
 	ErrorLevel: {
 		Name:         "error",
 		RawText:      "[ERRO]",
-		ColorfulText: Red("[ERRO]"),
+		ColorfulText: red("[ERRO]"),
 	},
 	WarnLevel: {
 		Name:             "warn",
 		AlternativeNames: []string{"warning"},
 		RawText:          "[WARN]",
-		ColorfulText:     Purple("[WARN]"),
+		ColorfulText:     orange("[WARN]"),
 	},
 	InfoLevel: {
 		Name:         "info",
 		RawText:      "[INFO]",
-		ColorfulText: Green("[INFO]"),
+		ColorfulText: green("[INFO]"),
 	},
 	DebugLevel: {
 		Name:         "debug",
 		RawText:      "[DBUG]",
-		ColorfulText: Yellow("[DBUG]"),
+		ColorfulText: yellow("[DBUG]"),
+	},
+	TraceLevel: {
+		Name:         "trace",
+		RawText:      "[TRCE]",
+		ColorfulText: lightGreen("[TRCE]"),
 	},
 }
 
@@ -78,7 +85,7 @@ type LevelMeta struct {
 	ColorfulText     string
 }
 
-func (m *LevelMeta) Text(enableColor bool) string {
+func (m *LevelMeta) text(enableColor bool) string {
 	if enableColor {
 		return m.ColorfulText
 	}

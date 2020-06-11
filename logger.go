@@ -1,4 +1,4 @@
-package xlog
+package ozlog
 
 import (
 	"fmt"
@@ -28,15 +28,18 @@ func New() *Logger {
 		TimeFormat: "2006/01/02 15:04",
 		ShowLine:   true,
 		Colorful:   true,
+		StackSkip:  4,
 		l:          log.New(os.Stdout, "", log.LstdFlags),
 	}
 }
 
+// SetPrefix
 func (l *Logger) SetPrefix(prefix string) *Logger {
 	l.Prefix = prefix
 	return l
 }
 
+// Skip
 func (l *Logger) Skip(skip int) *Logger {
 	nl := *l
 	nl.StackSkip = skip
@@ -48,7 +51,6 @@ func (l *Logger) SetTimeFormat(s string) *Logger {
 	l.mu.Lock()
 	l.TimeFormat = s
 	l.mu.Unlock()
-
 	return l
 }
 
@@ -57,7 +59,6 @@ func (l *Logger) DisableNewLine() *Logger {
 	l.mu.Lock()
 	l.ShowLine = false
 	l.mu.Unlock()
-
 	return l
 }
 
@@ -79,7 +80,9 @@ func (l *Logger) SetLevel(levelName string) *Logger {
 
 // getPrefix
 func (l *Logger) getPrefix(level Level) string {
-	s := ""
+	var (
+		s string
+	)
 	levels, ok := Levels[level]
 	if !ok {
 		return s
@@ -112,39 +115,45 @@ func (l *Logger) output(level Level, format string, a ...interface{}) {
 	if level > l.Level {
 		return
 	}
-	s := ""
+	var (
+		s string
+	)
 	if len(a) != 0 {
 		s = fmt.Sprintf(format, a...)
 	} else {
 		s = fmt.Sprint(format)
 	}
 	content := l.getPrefix(level) + " " + s + " " + l.getPosix()
-	log.Println(content)
+	l.l.Println(content)
 }
 
-// Infof
-func (l *Logger) Infof(format string, a ...interface{}) {
-	l.output(InfoLevel, format, a)
+// Tracef
+func (l *Logger) Tracef(format string, a ...interface{}) {
+	l.output(TraceLevel, format, a...)
 }
 
 // Debugf
 func (l *Logger) Debugf(format string, a ...interface{}) {
-	if l.Level >= DebugLevel {
-		l.output(DebugLevel, format, a)
-	}
+	l.output(DebugLevel, format, a...)
+}
+
+// Infof
+func (l *Logger) Infof(format string, a ...interface{}) {
+	l.output(InfoLevel, format, a...)
 }
 
 // Warnf
 func (l *Logger) Warnf(format string, a ...interface{}) {
-	l.output(WarnLevel, format, a)
+	l.output(WarnLevel, format, a...)
 }
 
 // Errorf
 func (l *Logger) Errorf(format string, a ...interface{}) {
-	l.output(ErrorLevel, format, a)
+	l.output(ErrorLevel, format, a...)
 }
 
 // Fatalf
 func (l *Logger) Fatalf(format string, a ...interface{}) {
-	l.output(FatalLevel, format, a)
+	l.output(FatalLevel, format, a...)
+	os.Exit(1)
 }
