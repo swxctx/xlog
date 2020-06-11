@@ -29,4 +29,4 @@ funca main(){
 ```  
   
 效果图:
-![uzthoozlogg](https://github.com/swxctx/xlog/blob/master/img/golang.png)
+![XLOG](https://github.com/swxctx/xlog/blob/master/img/golang.png)
