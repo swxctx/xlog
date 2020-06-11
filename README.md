@@ -20,11 +20,11 @@ import(
 funca main(){
     // 设置日志级别
     xlog.Default.Level = xlog.DebugLevel
-	xlog.Infof("infof test->%d", xlog.DebugLevel)
-	xlog.Debugf("debug test->%d", xlog.DebugLevel)
-	xlog.Warnf("warnf test->%d", xlog.DebugLevel)
-	xlog.Errorf("error test->%d", xlog.DebugLevel)
-	xlog.Fatalf("fatalf test->%d", xlog.DebugLevel)
+    xlog.Infof("infof test->%d", xlog.DebugLevel)
+    xlog.Debugf("debug test->%d", xlog.DebugLevel)
+    xlog.Warnf("warnf test->%d", xlog.DebugLevel)
+    xlog.Errorf("error test->%d", xlog.DebugLevel)
+    xlog.Fatalf("fatalf test->%d", xlog.DebugLevel)
 }
 ```  
   
