@@ -1,4 +1,4 @@
-package ozlog
+package xlog
 
 // Level
 type Level int

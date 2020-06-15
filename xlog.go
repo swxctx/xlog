@@ -1,4 +1,4 @@
-package ozlog
+package xlog
 
 // level 默认级别"info"
 var Default = New()

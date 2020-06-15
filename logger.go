@@ -1,4 +1,4 @@
-package ozlog
+package xlog
 
 import (
 	"fmt"
